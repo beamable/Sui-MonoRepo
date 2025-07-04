@@ -1,0 +1,7 @@
+{
+  "federations":
+  {
+    "hathora":[{"interface": "IFederatedGameServer"}],
+    "default":[{"interface": "IFederatedPlayerInit"}]
+  }
+}

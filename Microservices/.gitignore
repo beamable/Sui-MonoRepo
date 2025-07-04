@@ -1,0 +1,6 @@
+.idea/
+*.DotSettings.user
+
+# Visual Studio
+.vs/
+*.csproj.user

@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = SuiNodeServicve
+build_property.ProjectDir = C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\microservices\services\SuiNodeService\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

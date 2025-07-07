@@ -1,0 +1,691 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "LiveOpsDemoMS",
+    "version": "0.0.0"
+  },
+  "paths": {
+    "/admin/HealthCheck": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ]
+          }
+        ]
+      },
+      "x-beamable-method-skip-client-generation": false
+    },
+    "/admin/Docs": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ]
+          }
+        ]
+      },
+      "x-beamable-method-skip-client-generation": false
+    },
+    "/admin/Metadata": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/beamable.server.MicroserviceRuntimeMetadata"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ]
+          }
+        ]
+      },
+      "x-beamable-method-skip-client-generation": false
+    },
+    "/UpgradeItem": {
+      "post": {
+        "tags": [
+          "Uncategorized"
+        ],
+        "summary": "Upgrades the given item inside the given player's inventory. ",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpgradeItemRequestArgs"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ],
+            "user": [ ]
+          }
+        ],
+        "x-beamable-operation-method-type": "ClientCallableAttribute"
+      },
+      "x-beamable-method-skip-client-generation": false
+    },
+    "/IncrementStat": {
+      "post": {
+        "tags": [
+          "Uncategorized"
+        ],
+        "summary": "Increments the player's stat.",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IncrementStatRequestArgs"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ],
+            "user": [ ]
+          }
+        ],
+        "x-beamable-operation-method-type": "ClientCallableAttribute"
+      },
+      "x-beamable-method-skip-client-generation": false
+    },
+    "/GetSampleStat": {
+      "post": {
+        "tags": [
+          "Uncategorized"
+        ],
+        "summary": "Gets the value for the <see cref=\"F:Beamable.LiveOpsDemoMS.LiveOpsDemoMS.PlaySampleStatID\" /> stat.",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetSampleStatRequestArgs"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ],
+            "user": [ ]
+          }
+        ],
+        "x-beamable-operation-method-type": "ClientCallableAttribute"
+      },
+      "x-beamable-method-skip-client-generation": false
+    },
+    "/default/player": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/default_playerRequestArgs"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beamable.Common.PlayerInitResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ]
+          }
+        ]
+      },
+      "x-beamable-method-skip-client-generation": false
+    }
+  },
+  "components": {
+    "schemas": {
+      "beamable.server.MicroserviceRuntimeMetadata": {
+        "title": "MicroserviceRuntimeMetadata",
+        "required": [
+          "disableAllBeamableEvents",
+          "enableEagerContentLoading",
+          "federatedComponents",
+          "instanceId",
+          "routingKey",
+          "sdkBaseBuildVersion",
+          "sdkExecutionVersion",
+          "sdkVersion",
+          "serviceName",
+          "useLegacySerialization"
+        ],
+        "type": "object",
+        "properties": {
+          "serviceName": {
+            "type": "string"
+          },
+          "sdkVersion": {
+            "type": "string"
+          },
+          "sdkBaseBuildVersion": {
+            "type": "string"
+          },
+          "sdkExecutionVersion": {
+            "type": "string"
+          },
+          "useLegacySerialization": {
+            "type": "boolean"
+          },
+          "disableAllBeamableEvents": {
+            "type": "boolean"
+          },
+          "enableEagerContentLoading": {
+            "type": "boolean"
+          },
+          "instanceId": {
+            "type": "string"
+          },
+          "routingKey": {
+            "type": "string"
+          },
+          "federatedComponents": {
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "beamable.server",
+        "x-beamable-type-name": "MicroserviceRuntimeMetadata",
+        "x-beamable-qualified-name": "beamable.server.MicroserviceRuntimeMetadata",
+        "x-beamable-assembly": "beamable.tooling.common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "Beamable.Api.Autogenerated.Models.Account": {
+        "title": "Account",
+        "required": [
+          "createdTimeMillis",
+          "external",
+          "gamerTags",
+          "id",
+          "privilegedAccount",
+          "thirdParties",
+          "updatedTimeMillis"
+        ],
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string"
+          },
+          "createdTimeMillis": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "deviceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "email": {
+            "type": "string"
+          },
+          "external": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Beamable.Api.Autogenerated.Models.ExternalIdentity"
+            }
+          },
+          "gamerTags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Beamable.Api.Autogenerated.Models.GamerTagAssociation"
+            }
+          },
+          "heartbeat": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "inFlight": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Beamable.Api.Autogenerated.Models.InFlightMessage"
+            }
+          },
+          "language": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "privilegedAccount": {
+            "type": "boolean"
+          },
+          "realmId": {
+            "type": "string"
+          },
+          "roleString": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Beamable.Api.Autogenerated.Models.RoleMapping"
+            }
+          },
+          "thirdParties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Beamable.Api.Autogenerated.Models.ThirdPartyAssociation"
+            }
+          },
+          "updatedTimeMillis": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "wasMigrated": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "Beamable.Api.Autogenerated.Models",
+        "x-beamable-type-name": "Account",
+        "x-beamable-qualified-name": "Beamable.Api.Autogenerated.Models.Account",
+        "x-beamable-assembly": "Unity.Beamable.Runtime.Common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "Beamable.Common.PlayerInitResult": {
+        "title": "PlayerInitResult",
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "Beamable.Common",
+        "x-beamable-type-name": "PlayerInitResult",
+        "x-beamable-qualified-name": "Beamable.Common.PlayerInitResult",
+        "x-beamable-assembly": "Unity.Beamable.Runtime.Common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "Beamable.Api.Autogenerated.Models.ExternalIdentity": {
+        "title": "ExternalIdentity",
+        "required": [
+          "providerNamespace",
+          "providerService",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "providerNamespace": {
+            "type": "string"
+          },
+          "providerService": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "Beamable.Api.Autogenerated.Models",
+        "x-beamable-type-name": "ExternalIdentity",
+        "x-beamable-qualified-name": "Beamable.Api.Autogenerated.Models.ExternalIdentity",
+        "x-beamable-assembly": "Unity.Beamable.Runtime.Common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "Beamable.Api.Autogenerated.Models.GamerTagAssociation": {
+        "title": "GamerTagAssociation",
+        "required": [
+          "gamerTag",
+          "projectId"
+        ],
+        "type": "object",
+        "properties": {
+          "gamerTag": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "projectId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "Beamable.Api.Autogenerated.Models",
+        "x-beamable-type-name": "GamerTagAssociation",
+        "x-beamable-qualified-name": "Beamable.Api.Autogenerated.Models.GamerTagAssociation",
+        "x-beamable-assembly": "Unity.Beamable.Runtime.Common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "Beamable.Api.Autogenerated.Models.ThirdPartyAssociation": {
+        "title": "ThirdPartyAssociation",
+        "required": [
+          "appId",
+          "meta",
+          "name",
+          "userAppId"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Beamable.Common.Content.MapOfString"
+          },
+          "name": {
+            "type": "string"
+          },
+          "userAppId": {
+            "type": "string"
+          },
+          "userBusinessId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "Beamable.Api.Autogenerated.Models",
+        "x-beamable-type-name": "ThirdPartyAssociation",
+        "x-beamable-qualified-name": "Beamable.Api.Autogenerated.Models.ThirdPartyAssociation",
+        "x-beamable-assembly": "Unity.Beamable.Runtime.Common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "Beamable.Api.Autogenerated.Models.InFlightMessage": {
+        "title": "InFlightMessage",
+        "required": [
+          "body",
+          "id",
+          "method",
+          "path",
+          "service"
+        ],
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "gamerTag": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id": {
+            "type": "string"
+          },
+          "limitFailureRetries": {
+            "type": "boolean"
+          },
+          "method": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "shard": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "Beamable.Api.Autogenerated.Models",
+        "x-beamable-type-name": "InFlightMessage",
+        "x-beamable-qualified-name": "Beamable.Api.Autogenerated.Models.InFlightMessage",
+        "x-beamable-assembly": "Unity.Beamable.Runtime.Common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "Beamable.Api.Autogenerated.Models.RoleMapping": {
+        "title": "RoleMapping",
+        "required": [
+          "projectId",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "Beamable.Api.Autogenerated.Models",
+        "x-beamable-type-name": "RoleMapping",
+        "x-beamable-qualified-name": "Beamable.Api.Autogenerated.Models.RoleMapping",
+        "x-beamable-assembly": "Unity.Beamable.Runtime.Common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "Beamable.Common.Content.MapOfString": {
+        "title": "MapOfString",
+        "required": [
+          "keys",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "Beamable.Common.Content",
+        "x-beamable-type-name": "MapOfString",
+        "x-beamable-qualified-name": "Beamable.Common.Content.MapOfString",
+        "x-beamable-assembly": "Unity.Beamable.Runtime.Common",
+        "x-beamable-assembly-version": "5.0.3.0"
+      },
+      "UpgradeItemRequestArgs": {
+        "required": [
+          "gamerTag",
+          "itemInstaceID"
+        ],
+        "type": "object",
+        "properties": {
+          "gamerTag": {
+            "type": "integer",
+            "format": "int64",
+            "x-beamable-is-optional-schema": false
+          },
+          "itemInstaceID": {
+            "type": "integer",
+            "format": "int64",
+            "x-beamable-is-optional-schema": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "IncrementStatRequestArgs": {
+        "required": [
+          "gamerTag"
+        ],
+        "type": "object",
+        "properties": {
+          "gamerTag": {
+            "type": "integer",
+            "format": "int64",
+            "x-beamable-is-optional-schema": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetSampleStatRequestArgs": {
+        "required": [
+          "gamerTag"
+        ],
+        "type": "object",
+        "properties": {
+          "gamerTag": {
+            "type": "integer",
+            "format": "int64",
+            "x-beamable-is-optional-schema": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "default_playerRequestArgs": {
+        "required": [
+          "account",
+          "properties"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/Beamable.Api.Autogenerated.Models.Account"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "x-beamable-type-namespace": "System.Collections.Generic",
+            "x-beamable-type-name": "Dictionary`2",
+            "x-beamable-qualified-name": "System.Collections.Generic.Dictionary.System.String, System.String",
+            "x-beamable-assembly": "System.Private.CoreLib",
+            "x-beamable-assembly-version": "9.0.0.0",
+            "x-beamable-force-type-name": "System.Collections.Generic.Dictionary<System.String, System.String>",
+            "x-beamable-is-optional-schema": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "scope": {
+        "type": "apiKey",
+        "description": "Customer and project scope. This should contain the '<customer-id>.<project-id>'.",
+        "name": "X-DE-SCOPE",
+        "in": "header"
+      },
+      "user": {
+        "type": "http",
+        "description": "Bearer authentication with an player access token in the Authorization header.",
+        "scheme": "bearer",
+        "bearerFormat": "Bearer <Access Token>"
+      }
+    }
+  },
+  "x-federated-components": [
+    "IFederatedPlayerInit/default"
+  ],
+  "x-beamable-federated-components-v2": [
+    {
+      "interface": "Beamable.Common.IFederatedPlayerInit",
+      "federationId": "default",
+      "federationClassName": "Beamable.LiveOpsDemoMS.DefaultPlayerInit"
+    }
+  ],
+  "x-beamable-microservice-class-type": "Beamable.LiveOpsDemoMS.LiveOpsDemoMS",
+  "x-beamable-microservice-methods-to-skip-generation": [ ]
+}

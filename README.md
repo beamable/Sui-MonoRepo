@@ -27,6 +27,7 @@ Welcome to the unified repository for our cross-platform SUI integration. This m
     - Federated Authentication
     - Federated Inventory
 - Deployed via Beamable CLI or Docker
+- This has already been linked to both the Unity and Unreal projects
 
 ### 🔐 Wallet Integration
 - Supports Sui wallet bridge (e.g. via `@mysten/wallet-standard`)

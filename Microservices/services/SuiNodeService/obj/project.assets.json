@@ -1238,11 +1238,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Beamable\\Repos\\BeamGDCDemo-2025\\sui-unity\\microservices\\services\\SuiNodeService\\SuiNodeService.csproj",
+      "projectUniqueName": "C:\\Beamable\\Sui-MonoRepo\\Microservices\\services\\SuiNodeService\\SuiNodeService.csproj",
       "projectName": "SuiNodeService",
-      "projectPath": "C:\\Beamable\\Repos\\BeamGDCDemo-2025\\sui-unity\\microservices\\services\\SuiNodeService\\SuiNodeService.csproj",
+      "projectPath": "C:\\Beamable\\Sui-MonoRepo\\Microservices\\services\\SuiNodeService\\SuiNodeService.csproj",
       "packagesPath": "C:\\Users\\moehi\\.nuget\\packages\\",
-      "outputPath": "C:\\Beamable\\Repos\\BeamGDCDemo-2025\\sui-unity\\microservices\\services\\SuiNodeService\\obj\\",
+      "outputPath": "C:\\Beamable\\Sui-MonoRepo\\Microservices\\services\\SuiNodeService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

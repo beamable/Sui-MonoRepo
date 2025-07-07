@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NBvfGVoCQS8=",
+  "dgSpecHash": "Lwy9CSAXhFI=",
   "success": true,
-  "projectFilePath": "C:\\Beamable\\Repos\\BeamGDCDemo-2025\\sui-unity\\microservices\\services\\SuiNodeService\\SuiNodeService.csproj",
+  "projectFilePath": "C:\\Beamable\\Sui-MonoRepo\\Microservices\\services\\SuiNodeService\\SuiNodeService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moehi\\.nuget\\packages\\jering.javascript.nodejs\\7.0.0\\jering.javascript.nodejs.7.0.0.nupkg.sha512",
     "C:\\Users\\moehi\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

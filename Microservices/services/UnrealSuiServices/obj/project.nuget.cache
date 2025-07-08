@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DplxWqKKTvw=",
+  "dgSpecHash": "WCdvRvrkmC4=",
   "success": true,
-  "projectFilePath": "C:\\Beamable\\Repos\\BeamUnreal\\Microservices\\services\\LiveOpsDemoMS\\LiveOpsDemoMS.csproj",
+  "projectFilePath": "C:\\Beamable\\Sui-MonoRepo\\Microservices\\services\\UnrealSuiServices\\LiveOpsDemoMS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moehi\\.nuget\\packages\\beamable.common\\5.0.3\\beamable.common.5.0.3.nupkg.sha512",
     "C:\\Users\\moehi\\.nuget\\packages\\beamable.microservice.runtime\\5.0.3\\beamable.microservice.runtime.5.0.3.nupkg.sha512",

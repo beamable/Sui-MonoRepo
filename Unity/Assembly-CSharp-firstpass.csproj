@@ -873,17 +873,17 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Beamable.Utility">
-      <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Beamable.Utility.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Editor">
       <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Beamable">
       <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Unity.Beamable.dll</HintPath>
@@ -905,9 +905,6 @@
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Beamable.Platform">
       <HintPath>C:\Beamable\Sui-MonoRepo\Unity\Library\ScriptAssemblies\Beamable.Platform.dll</HintPath>

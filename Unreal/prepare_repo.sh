@@ -93,24 +93,24 @@ if [ ! -d "$PLUGIN_SANDBOX_PATH" ]; then
     cp -r "$TEMPLATE_SANDBOX_PATH"/* "$PLUGIN_SANDBOX_PATH"
 fi  
 
-PLAYGROUND_MS_NAME="Microservices/services/MSPlayground"
+PLAYGROUND_MS_NAME="../Microservices/services/MSPlayground"
 if [ $CLEAN_SANDBOXES = 'true' ] && [ -d $PLAYGROUND_MS_NAME ]; then
   echo "Cleaning MSPlayground microservice."
   rm -rf $PLAYGROUND_MS_NAME
 fi
 if [ ! -d $PLAYGROUND_MS_NAME ];then
   echo "Creating MSPlayground microservice for local development."
-  dotnet beam project new service MSPlayground --sln "Microservices/Microservices.sln" --logs v --groups BEAMPROJ_Sandbox
+  dotnet beam project new service MSPlayground --sln "../Microservices/Microservices.sln" --logs v --groups BEAMPROJ_Sandbox
 fi
 
-PLAYGROUND_DB_NAME="Microservices/services/DBPlayground"
+PLAYGROUND_DB_NAME="../Microservices/services/DBPlayground"
 if [ $CLEAN_SANDBOXES = 'true' ] && [ -d $PLAYGROUND_DB_NAME ]; then
   echo "Cleaning DBPlayground microstorage."
   rm -rf $PLAYGROUND_DB_NAME
 fi
 if [ ! -d $PLAYGROUND_DB_NAME ];then
   echo "Creating DBPlayground storage for local development."
-  dotnet beam project new storage DBPlayground --sln "Microservices/Microservices.sln" --quiet --logs v --groups BEAMPROJ_Sandbox
+  dotnet beam project new storage DBPlayground --sln "../Microservices/Microservices.sln" --quiet --logs v --groups BEAMPROJ_Sandbox
   dotnet beam project deps add MSPlayground DBPlayground
 fi
 

@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "beamableServices.sln",
+    "projects": [
+      "..\\..\\Microservices\\services\\SuiFederation\\SuiFederation.csproj",
+      "..\\..\\Microservices\\services\\SuiFederationStorage\\SuiFederationStorage.csproj",
+      "..\\..\\Microservices\\services\\UnrealSuiServices\\LiveOpsDemoMS.csproj",
+      "..\\microservices\\services\\SuiFederation\\SuiFederation.csproj",
+      "..\\microservices\\services\\SuiFederationStorage\\SuiFederationStorage.csproj"
+    ]
+  }
+}

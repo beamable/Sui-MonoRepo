@@ -441,55 +441,44 @@ void UBeamEditor::SignIn(FString OrgName, FString Email, FString Password, const
 
 void UBeamEditor::SignInWithCliInfo(const FBeamOperationHandle Op)
 {
-	// Make sure that the CLI is correctly targeting some realm
-	FString PathToConfigJson = FPaths::ProjectDir() / TEXT(".beamable") / TEXT("connection-configuration.json");
-	FString ConfigJson;
-
-	// Read out the config file
-	const auto bCliIsTargetingRealm = FFileHelper::LoadFileToString(ConfigJson, *PathToConfigJson);
-	
 	// When the CLI is not installed, we should not do anything. 
-	const auto Cli = GEditor->GetEditorSubsystem<UBeamCli>();
-	if (!Cli->IsInstalled())
-	{
-		if (bCliIsTargetingRealm)
-		{
-			FJsonDataBag ConfigJsonBag;
-			if (ConfigJsonBag.FromJson(ConfigJson))
-			{
-				const auto Cid = ConfigJsonBag.GetString(TEXT("cid"));
-				const auto Pid = ConfigJsonBag.GetString(TEXT("pid"));
-
-				GetMutableDefault<UBeamCoreSettings>()->TargetRealm.Cid.AsString = Cid;
-				GetMutableDefault<UBeamCoreSettings>()->TargetRealm.Pid.AsString = Pid;
-			}
-			else
-			{
-				const auto Err = FString::Printf(
-					TEXT("%s"),
-					TEXT(
-						"We found `.beamable/connection-configuration.json` file in your `.beamable` folder, but we couldn't parse it as JSON. When you don't have a CLI installed, you must have this file in your version control system so we know which realm you are targeting during PIE."));
-				RequestTracker->TriggerOperationError(Op, Err);
-			}
-		}
-		else
-		{
-			const auto Err = FString::Printf(
-				TEXT("%s"),
-				TEXT(
-					"We did not find a `.beamable/connection-configuration.json` file in your `.beamable` folder. When you don't have a CLI installed, you must have this file in your version control system so we know which realm you are targeting during PIE."));
-			RequestTracker->TriggerOperationError(Op, TEXT("Cli is not installed. Cannot sign into the Beamable Editor."));
-		}
-
-		return;
-	}
-
-	if (!bCliIsTargetingRealm)
-	{
-		RequestTracker->TriggerOperationError(Op, TEXT("Beamable not configured with any CID/PID. Please Sign-In."));
-		return;
-	}
-
+    	const auto Cli = GEditor->GetEditorSubsystem<UBeamCli>();
+    	if (!Cli->IsInstalled())
+    	{
+    		FString ConfigJson;
+    		FString PathToConfigJson = FPaths::ProjectDir() / TEXT(".beamable") / TEXT("connection-configuration.json");
+    		if (FFileHelper::LoadFileToString(ConfigJson, *PathToConfigJson))
+    		{
+    			FJsonDataBag ConfigJsonBag;
+    			if (ConfigJsonBag.FromJson(ConfigJson))
+    			{
+    				const auto Cid = ConfigJsonBag.GetString(TEXT("cid"));
+    				const auto Pid = ConfigJsonBag.GetString(TEXT("pid"));
+    
+    				GetMutableDefault<UBeamCoreSettings>()->TargetRealm.Cid.AsString = Cid;
+    				GetMutableDefault<UBeamCoreSettings>()->TargetRealm.Pid.AsString = Pid;
+    			}
+    			else
+    			{
+    				const auto Err = FString::Printf(
+    					TEXT("%s"),
+    					TEXT(
+    						"We found `.beamable/connection-configuration.json` file in your `.beamable` folder, but we couldn't parse it as JSON. When you don't have a CLI installed, you must have this file in your version control system so we know which realm you are targeting during PIE."));
+    				RequestTracker->TriggerOperationError(Op, Err);
+    			}
+    		}
+    		else
+    		{
+    			const auto Err = FString::Printf(
+    				TEXT("%s"),
+    				TEXT(
+    					"We did not find a `.beamable/connection-configuration.json` file in your `.beamable` folder. When you don't have a CLI installed, you must have this file in your version control system so we know which realm you are targeting during PIE."));
+    			RequestTracker->TriggerOperationError(Op, TEXT("Cli is not installed. Cannot sign into the Beamable Editor."));
+    		}
+    
+    		return;
+    	}
+    	
 	// Start the CLI server manually skipping the pre-warm 
 	Cli->StartCliServer(true);
 	

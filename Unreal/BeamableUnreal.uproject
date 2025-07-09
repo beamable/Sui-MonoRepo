@@ -45,36 +45,8 @@
 			"Enabled": false
 		},
 		{
-			"Name": "HathoraSDK",
-			"Enabled": false
-		},
-		{
-			"Name": "DiscordSDK",
-			"Enabled": false
-		},
-		{
-			"Name": "BEAMPROJ_Sandbox",
-			"Enabled": false
-		},
-		{
-			"Name": "BEAMPROJ_SteamDemo",
-			"Enabled": false
-		},
-		{
-			"Name": "BEAMPROJ_HathoraDemo",
-			"Enabled": false
-		},
-		{
 			"Name": "BEAMPROJ_LiveOpsDemo",
 			"Enabled": true
-		},
-		{
-			"Name": "BEAMPROJ_DiscordDemo",
-			"Enabled": false
-		},
-		{
-			"Name": "BEAMPROJ_Beamball",
-			"Enabled": false
 		},
 		{
 			"Name": "OpenImageDenoise",

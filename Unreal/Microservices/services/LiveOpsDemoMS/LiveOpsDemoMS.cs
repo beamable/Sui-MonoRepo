@@ -15,40 +15,40 @@ namespace Beamable.LiveOpsDemoMS
     public class DefaultPlayerInit : IFederationId;
 
     [Microservice("LiveOpsDemoMS")]
-    public class LiveOpsDemoMS : Microservice, IFederatedPlayerInit<DefaultPlayerInit>
+    public class LiveOpsDemoMS : Microservice
     {
         const string PlaySampleStatID = "my_sample_stat";
         const string SampleItemID = "items.sample_item";
 
 
-        public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<string, string> properties)
-        {
-            // Get the gamertag for the user in this realm.
-            var gamerTagInRealm = account.gamerTags.First(a => a.projectId == Context.Pid).gamerTag;
-
-            var user = AssumeNewUser(gamerTagInRealm);
-            
-            //Add 3 sample items with level 1
-            var updateBuilder = new InventoryUpdateBuilder();
-            var itemProperties = new Dictionary<string, string>
-            {
-                { "itemlevel", "1" }
-            };
-
-            //Add 3 instances of the sample item
-            updateBuilder.AddItem(SampleItemID, itemProperties);
-            updateBuilder.AddItem(SampleItemID, itemProperties);
-            updateBuilder.AddItem(SampleItemID, itemProperties);
-
-            // Update the player's inventory to grant these items.
-            await user.Services.Inventory.Update(updateBuilder);
-
-            //Set the initial sample stat to be 1
-            await user.Services.Stats.SetStat(StatsDomainType.Game, StatsAccessType.Private, gamerTagInRealm, PlaySampleStatID, "1");
-
-            // Return an ok result
-            return new PlayerInitResult() { result = "" };
-        }
+        // public async Promise<PlayerInitResult> CreatePlayer(Account account, Dictionary<string, string> properties)
+        // {
+        //     // Get the gamertag for the user in this realm.
+        //     var gamerTagInRealm = account.gamerTags.First(a => a.projectId == Context.Pid).gamerTag;
+        //
+        //     var user = AssumeNewUser(gamerTagInRealm);
+        //     
+        //     //Add 3 sample items with level 1
+        //     var updateBuilder = new InventoryUpdateBuilder();
+        //     var itemProperties = new Dictionary<string, string>
+        //     {
+        //         { "itemlevel", "1" }
+        //     };
+        //
+        //     //Add 3 instances of the sample item
+        //     updateBuilder.AddItem(SampleItemID, itemProperties);
+        //     updateBuilder.AddItem(SampleItemID, itemProperties);
+        //     updateBuilder.AddItem(SampleItemID, itemProperties);
+        //
+        //     // Update the player's inventory to grant these items.
+        //     await user.Services.Inventory.Update(updateBuilder);
+        //
+        //     //Set the initial sample stat to be 1
+        //     await user.Services.Stats.SetStat(StatsDomainType.Game, StatsAccessType.Private, gamerTagInRealm, PlaySampleStatID, "1");
+        //
+        //     // Return an ok result
+        //     return new PlayerInitResult() { result = "" };
+        // }
 
 
         /// <summary>

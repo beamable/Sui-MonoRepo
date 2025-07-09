@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LiveOpsDemoMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40f6cbf03c89018e4bfe8409599c91f3723d7699")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d67d28baaf6830c8d9032e03cb97694fade10bb7")]
 [assembly: System.Reflection.AssemblyProductAttribute("LiveOpsDemoMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LiveOpsDemoMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

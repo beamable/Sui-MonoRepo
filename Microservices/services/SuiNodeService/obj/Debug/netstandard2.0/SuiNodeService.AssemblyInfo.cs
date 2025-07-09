@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuiNodeService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ced8c43e80136f2d4adf1fa3ee226d8c95ef19e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d67d28baaf6830c8d9032e03cb97694fade10bb7")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuiNodeService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuiNodeService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

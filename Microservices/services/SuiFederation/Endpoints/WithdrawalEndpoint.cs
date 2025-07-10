@@ -57,7 +57,7 @@ public class WithdrawalEndpoint : IEndpoint
             await ChannelService.Enqueue(user, async (_) =>
                 await _updatePlayerStateService.Update(new InventoryTransactionNotification
                 {
-                    InventoryTransactionId = transaction
+                    Id = transaction
                 }, user)
             );
         });

@@ -25,6 +25,8 @@
         <PackageReference Include="Beamable.Microservice.Runtime" Version="$(BeamableVersion)" />
         <PackageReference Include="Beamable.Microservice.SourceGen" Version="$(BeamableVersion)" OutputItemType="Analyzer" />
         <PackageReference Include="Handlebars.Net" Version="2.1.6" />
+        <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.12.1" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.12.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -65,6 +67,8 @@
         <Copy SourceFiles="js\models.js" DestinationFolder="$(OutputPath)\js" />
     </Target>
 
+    <!--
     <Target Name="PreBuild" BeforeTargets="Build" DependsOnTargets="NpmBuild" />
+    -->
 
 </Project>

@@ -1,6 +1,7 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using SuiFederationCommon.Models.Oauth;
 
 namespace Beamable.SuiFederation.Features.Notifications.Models;
 
@@ -14,7 +15,8 @@ public class NotificationConverter : JsonConverter<IPlayerNotification>
 
         return context switch
         {
-            PlayerNotifications.InventoryTransactionContext => JsonSerializer.Deserialize<InventoryTransactionNotification>(root.GetRawText(), options),
+            PlayerNotificationContext.InventoryTransaction => JsonSerializer.Deserialize<InventoryTransactionNotification>(root.GetRawText(), options),
+            PlayerNotificationContext.OauthContext => JsonSerializer.Deserialize<OAuthNotification>(root.GetRawText(), options),
             _ => throw new NotSupportedException($"Context '{context}' is not supported.")
         };
     }
@@ -23,9 +25,4 @@ public class NotificationConverter : JsonConverter<IPlayerNotification>
     {
         JsonSerializer.Serialize(writer, value, value.GetType(), options);
     }
-}
-
-public static class PlayerNotifications
-{
-    public const string InventoryTransactionContext = "inventory-transaction";
 }

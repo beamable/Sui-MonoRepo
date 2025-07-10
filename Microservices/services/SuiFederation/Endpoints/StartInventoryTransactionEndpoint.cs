@@ -60,7 +60,7 @@ public class StartInventoryTransactionEndpoint : IEndpoint
             await ChannelService.Enqueue(user, async (_) =>
                     await _updatePlayerStateService.Update(new InventoryTransactionNotification
                     {
-                        InventoryTransactionId = transaction
+                        Id = transaction
                     }, user)
             );
             BeamableLogger.Log("ChannelService queue lenght {GetQueueLength}", ChannelService.GetQueueLength());

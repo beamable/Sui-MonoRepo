@@ -8,6 +8,7 @@ using Beamable.SuiFederation.Endpoints;
 using Beamable.SuiFederation.Extensions;
 using Beamable.SuiFederation.Features.Accounts;
 using Beamable.SuiFederation.Features.ChannelProcessor;
+using Beamable.SuiFederation.Features.Common;
 using SuiFederationCommon;
 
 namespace Beamable.SuiFederation
@@ -105,6 +106,7 @@ namespace Beamable.SuiFederation
 
 		async Promise<FederatedAuthenticationResponse> IFederatedLogin<SuiWeb3Identity>.Authenticate(string token, string challenge, string solution)
 		{
+			ProjectInfo.Initialize(Context.Cid, Context.Pid);
 			return await Provider.GetService<AuthenticateEndpoint>()
 				.Authenticate(token, challenge, solution);
 		}

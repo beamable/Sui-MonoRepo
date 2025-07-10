@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Beamable.Common;
 using Beamable.Common.Api.Inventory;
 using Beamable.SuiFederation.Endpoints;
+using Beamable.SuiFederation.Features.Common;
 using SuiFederationCommon;
 
 namespace Beamable.SuiFederation;
@@ -10,6 +11,7 @@ public partial class SuiFederation : IFederatedInventory<SuiWeb3ExternalIdentity
 {
     async Promise<FederatedAuthenticationResponse> IFederatedLogin<SuiWeb3ExternalIdentity>.Authenticate(string token, string challenge, string solution)
     {
+        ProjectInfo.Initialize(Context.Cid, Context.Pid);
         return await Provider.GetService<AuthenticateExternalEndpoint>()
             .Authenticate(token, challenge, solution);
     }

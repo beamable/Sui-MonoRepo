@@ -50,6 +50,32 @@ public class SuiApiService : IService
         }
     }
 
+    public static async Task<CreateWalletResponse> CreateEphemeral()
+    {
+        using (new Measure($"Sui.createEphemeral"))
+        {
+            try
+            {
+                var jsonString = await NodeService.CreateEphemeral();
+                if (string.IsNullOrWhiteSpace(jsonString))
+                    throw new Exception("createWallet output is empty.");
+
+                return JsonSerializer.Deserialize<CreateWalletResponse>(jsonString)
+                       ?? throw new Exception();
+            }
+            catch (JsonException ex)
+            {
+                BeamableLogger.LogError("Can't deserialize createWallet return. Error: {error}", ex.Message);
+                throw new SuiApiException($"createWallet: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                BeamableLogger.LogError("Can't generate new private key. Error: {error}", ex.Message);
+                throw new SuiApiException($"createWallet: {ex.Message}");
+            }
+        }
+    }
+
     public static async Task<CreateWalletResponse> ImportPrivateKey(string privateKey)
     {
         using (new Measure($"Sui.importWallet"))

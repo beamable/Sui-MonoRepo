@@ -1,1 +1,0 @@
-#include "BeamableCore/Public/Content/BeamContentTypes/BeamCurrencyContent.h"

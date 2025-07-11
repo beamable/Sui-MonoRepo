@@ -27,6 +27,5 @@ if (!$process.HasExited) {
 } else {
     Write-Host "Start deployment ..."
 	dotnet beam deploy plan
-    dotnet beam deploy release --latest-plan -:
-
+    dotnet beam deploy release --latest-plan -q
 }

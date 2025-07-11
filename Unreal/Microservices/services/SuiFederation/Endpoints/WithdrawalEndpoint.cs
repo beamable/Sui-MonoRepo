@@ -6,11 +6,11 @@ using Beamable.SuiFederation.Extensions;
 using Beamable.SuiFederation.Features.Accounts.Exceptions;
 using Beamable.SuiFederation.Features.ChannelProcessor;
 using Beamable.SuiFederation.Features.Inventory;
-using Beamable.SuiFederation.Features.Notifications.Models;
 using Beamable.SuiFederation.Features.Transactions;
 using Beamable.SuiFederation.Features.Withdrawal;
 using Beamable.SuiFederation.Features.Withdrawal.Models;
 using SuiFederationCommon;
+using SuiFederationCommon.Models.Notifications;
 
 namespace Beamable.SuiFederation.Endpoints;
 
@@ -57,7 +57,7 @@ public class WithdrawalEndpoint : IEndpoint
             await ChannelService.Enqueue(user, async (_) =>
                 await _updatePlayerStateService.Update(new InventoryTransactionNotification
                 {
-                    InventoryTransactionId = transaction
+                    Id = transaction
                 }, user)
             );
         });

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Beamable.SuiFederation.Extensions;
 using Beamable.SuiFederation.Features.Inventory.Models;
 using SuiFederationCommon.Models;
 
@@ -30,10 +31,10 @@ public static class NftContentItemExtensions
     private static Dictionary<string, string> GetAttributes(Dictionary<string, string> dynamicProperties, Dictionary<string, string> staticProperties)
     {
         var filteredDynamic = dynamicProperties
-            .Where(kvp => kvp.Key.StartsWith('$') &&
-                          !kvp.Key.StartsWith("$name") &&
-                          !kvp.Key.StartsWith("$image") &&
-                          !kvp.Key.StartsWith("$description"))
+            .Where(kvp => kvp.Key.StartsWithFast("$") &&
+                          !kvp.Key.StartsWithFast("$name") &&
+                          !kvp.Key.StartsWithFast("$image") &&
+                          !kvp.Key.StartsWithFast("$description"))
             .ToDictionary(kvp => kvp.Key.TrimStart('$'), kvp => kvp.Value);
         var result = new Dictionary<string, string>(staticProperties);
         foreach (var kvp in filteredDynamic)

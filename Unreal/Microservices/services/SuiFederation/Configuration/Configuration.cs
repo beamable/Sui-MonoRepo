@@ -35,6 +35,8 @@ public class Configuration : IService
 
     public ValueTask<string> SuiEnvironment => GetValue(nameof(SuiEnvironment), "devnet");
     public ValueTask<int> AuthenticationChallengeTtlSec => GetValue(nameof(AuthenticationChallengeTtlSec), 600);
+    public ValueTask<string> EnokiApiKey => GetValue(nameof(EnokiApiKey), "");
+    public ValueTask<string> EnokiUrl => GetValue(nameof(EnokiUrl), "");
 
     private async ValueTask<T> GetValue<T>(string key, T defaultValue) where T : IConvertible
     {

@@ -11,5 +11,6 @@ public static class ServiceRegistration
         builder.AddScoped<GetInventoryStateEndpoint>();
         builder.AddScoped<AuthenticateExternalEndpoint>();
         builder.AddScoped<WithdrawalEndpoint>();
+        builder.AddScoped<AuthenticateEnokiEndpoint>();
     }
 }

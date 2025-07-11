@@ -22,6 +22,17 @@ namespace SuiNodeServicve
         }
 
         /// <summary>
+        /// Creates SUI ephemeral wallet keypair
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<string> CreateEphemeral()
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "createEphemeral") ?? "";
+        }
+
+        /// <summary>
         /// Import SUI wallet from a private key
         /// </summary>
         /// <returns></returns>

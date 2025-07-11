@@ -1,0 +1,44 @@
+name: Deploy Unity microservices
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Deployment target
+        options:
+          - Unity
+          - Unreal
+        required: true
+        type: choice
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    timeout-minutes: 15
+    steps:
+      - name: Disable IPv6
+        run: |
+          sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+          sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+          sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          lfs: 'true'
+
+      - name: Setup .NET SDK 8.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Deploy Microservices
+        run: |
+          ./scripts/github-deploy.ps1 -rtoken $env:BEAM_DEPLOYER_REFRESH_TOKEN -cid $env:BEAMABLE_CID -projectId $env:BEAMABLE_PID -wd $env:BEAMABLE_MICROSERVICE_ROOT
+        shell: pwsh
+        env:
+          BEAM_DEPLOYER_REFRESH_TOKEN: ${{ secrets.BEAM_DEPLOYER_REFRESH_TOKEN }}
+          BEAMABLE_CID: ${{ vars.BEAMABLE_CID }}
+          BEAMABLE_PID: ${{ vars.BEAMABLE_PID }}
+          BEAMABLE_MICROSERVICE_ROOT: ${{ vars.BEAMABLE_MICROSERVICE_ROOT }}

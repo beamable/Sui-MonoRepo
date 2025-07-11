@@ -1,4 +1,4 @@
-name: Deploy Unity microservices
+name: Deploy microservices
 
 on:
   workflow_dispatch:

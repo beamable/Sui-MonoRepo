@@ -7,8 +7,8 @@ using Beamable.SuiFederation.Features.ChannelProcessor;
 using Beamable.SuiFederation.Features.Content.Models;
 using Beamable.SuiFederation.Features.Inventory;
 using Beamable.SuiFederation.Features.Inventory.Models;
-using Beamable.SuiFederation.Features.Notifications.Models;
 using Beamable.SuiFederation.Features.Transactions;
+using SuiFederationCommon.Models.Notifications;
 
 namespace Beamable.SuiFederation.Endpoints;
 
@@ -60,7 +60,7 @@ public class StartInventoryTransactionEndpoint : IEndpoint
             await ChannelService.Enqueue(user, async (_) =>
                     await _updatePlayerStateService.Update(new InventoryTransactionNotification
                     {
-                        InventoryTransactionId = transaction
+                        Id = transaction
                     }, user)
             );
             BeamableLogger.Log("ChannelService queue lenght {GetQueueLength}", ChannelService.GetQueueLength());

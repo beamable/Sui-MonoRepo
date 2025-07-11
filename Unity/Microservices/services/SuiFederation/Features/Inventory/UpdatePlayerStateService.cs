@@ -8,8 +8,8 @@ using Beamable.Server;
 using Beamable.SuiFederation.Endpoints;
 using Beamable.SuiFederation.Features.Accounts;
 using Beamable.SuiFederation.Features.Notifications;
-using Beamable.SuiFederation.Features.Notifications.Models;
 using Beamable.SuiFederation.Features.Transactions.Storage;
+using SuiFederationCommon.Models.Notifications;
 
 namespace Beamable.SuiFederation.Features.Inventory;
 
@@ -34,7 +34,7 @@ public class UpdatePlayerStateService : IService
     {
         try
         {
-            var transactionLog = await _transactionLogCollection.GetByInventoryTransaction(notification.InventoryTransactionId);
+            var transactionLog = await _transactionLogCollection.GetByInventoryTransaction(notification.Id);
             if (transactionLog is not null && transactionLog.MintedTimestamp is null)
             {
                 await _transactionLogCollection.SetMintedDone(transactionLog.Id);

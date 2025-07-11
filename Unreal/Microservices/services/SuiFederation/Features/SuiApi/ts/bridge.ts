@@ -69,6 +69,20 @@ async function createWallet(callback: Callback<string>) {
     }
     callback(error, JSON.stringify(keys));
 }
+
+async function createEphemeral(callback: Callback<string>) {
+    let error = null;
+    const keys= new CreateWalletResponse();
+    try {
+        const keypair = new Ed25519Keypair();
+        keys.PrivateKey = keypair.getSecretKey();
+        keys.Address = keypair.toSuiAddress();
+        keys.PublicKey = keypair.getPublicKey().toSuiPublicKey();
+    } catch (ex) {
+        error = ex;
+    }
+    callback(error, JSON.stringify(keys));
+}
 async function importWallet(callback: Callback<string>, privateKey: string) {
     let error = null;
     const keys= new CreateWalletResponse();
@@ -974,6 +988,7 @@ async function withdrawCurrency(callback: Callback<string>, request: string, dev
 
 module.exports = {
     createWallet,
+    createEphemeral,
     importWallet,
     verifySignature,
     mintRegularCoin,
